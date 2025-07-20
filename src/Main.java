@@ -1,7 +1,4 @@
-import StriverA2Z.BasicHashing;
-import StriverA2Z.BasicMath;
-import StriverA2Z.BasicRecursion;
-import StriverA2Z.SortingI;
+import StriverA2Z.*;
 
 import java.util.Arrays;
 
@@ -20,7 +17,11 @@ public class Main {
 //        BasicHashing bh = new BasicHashing();
 //        bh.countHighestLowestFrequency(new int[]{10,15, 5, 10, 15, 10});
 
-        SortingI sI = new SortingI();
-        System.out.println(Arrays.toString(sI.insertionSort(arr)));
+//        SortingI sI = new SortingI();
+//        System.out.println(Arrays.toString(sI.insertionSort(arr)));
+
+        SortingII sII = new SortingII();
+//        System.out.println(Arrays.toString(sII.quickSort(arr, 0, arr.length - 1)));
+        System.out.println(Arrays.toString(sII.recursiveInsertionSort(arr, 1)));
     }
 }
