@@ -33,7 +33,7 @@ public class ArrayMedium {
             if(sum == k) {
                 return new int[]{left, right};
             } else if(sum < k) left++;
-            else right++;
+            else right--;
         }
         return new int[]{-1, -1};
     }
@@ -171,6 +171,122 @@ public class ArrayMedium {
         }
         if(count > n/2) return el;
         return -1;
+    }
+
+    public int maximumSubarraySumKadanesAlgo(int[] arr) {
+        int n = arr.length;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0;i<n;i++) {
+            int sum = 0;
+            for(int j=i;j<n;j++) {
+                sum+=arr[j];
+            }
+            max = Math.max(max, sum);
+        }
+        return max;
+
+        // kadanes algorithm
+//        int n = arr.length;
+//        int max = Integer.MIN_VALUE;
+//        int sum = 0;
+//        for(int e: arr) {
+//            sum+=e;
+//
+//            if(sum > max) {
+//                max = sum;
+//            }
+//
+//            if(sum < 0) {
+//                sum = 0;
+//            }
+//        }
+//        return max;
+    }
+
+    public int maximumSubarraySumKadanesAlgoWithSubarray(int[] arr) {
+//        int n = arr.length;
+//        int max = Integer.MIN_VALUE;
+//        int start = 0, end = 0;
+//        for(int i = 0;i<n;i++) {
+//            int sum = 0;
+//            for(int j=i;j<n;j++) {
+//                sum+=arr[j];
+//                if(sum > max) {
+//                    max = sum;
+//                    start = i;
+//                    end = j;
+//                }
+//            }
+//        }
+//
+//        for(int i=start;i<=end;i++) {
+//            System.out.print(arr[i] + " ");
+//        }
+//        System.out.println();
+//        return max;
+
+        //kadane's algorithm
+        int n = arr.length;
+        int max = Integer.MIN_VALUE;
+        int start =0,end =0;
+        int sum = 0;
+        for(int i=0;i<n;i++) {
+            if(sum == 0) start = i;
+            sum+=arr[i];
+
+            if(sum > max) {
+                max = sum;
+                end = i;
+            }
+
+            if(sum < 0) {
+                sum = 0;
+            }
+        }
+
+        for(int i = start;i<=end;i++) {
+            System.out.print(arr[i] +" ");
+        }
+        System.out.println();
+        return max;
+    }
+
+    public int stocksBuyAndSellSingleTransactionAllowed(int[] arr){
+        int n = arr.length;
+        int max = Integer.MIN_VALUE;
+
+//        for(int i=0;i<n;i++){
+//            int sum = 0;
+//            for(int j=i+1;j<n;j++){
+//                if(arr[j]>arr[i]){
+//                    max = Math.max(max, arr[j] - arr[i]);
+//                }
+//            }
+//        }
+//
+//        return max;
+
+
+//        int[] aux = new int[n];
+//        int maxEl = 0;
+//        for(int i=n-1;i>=0;i--){
+//            if(arr[i] > maxEl) {
+//                maxEl = arr[i];
+//            }
+//            aux[i] = maxEl;
+//        }
+//
+//        for(int i=0;i<n;i++) {
+//            max = Math.max(max, aux[i]-arr[i]);
+//        }
+//        return max;
+        int mini = arr[0];
+        for(int i=1;i<n;i++) {
+            int cost = arr[i] - mini;
+            max = Math.max(max, cost);
+            mini = Math.min(mini, arr[i]);
+        }
+        return max;
     }
 
 }
