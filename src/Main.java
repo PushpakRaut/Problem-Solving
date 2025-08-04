@@ -38,8 +38,12 @@ public class Main {
         ArrayMedium am = new ArrayMedium();
         int[] arr = {7,1,5,3,6,4};
         int[] arr1 = {0,1,2,1,1,1,0,0,2,0,2,2,1};
-        int[] arr2 = {7,7,5,7,5,1,5,7,5,5,7,7,5,5,5,5};
-//        System.out.println(Arrays.toString(am.sortArray0s1s2s(arr1)));
-        System.out.println(am.stocksBuyAndSellSingleTransactionAllowed(arr));
+        int[] arr2 = {-7,7,-5,-7,-5,-1,5,7,5,5,-7,7,5,-5,-5,5};
+//        System.out.println(Arrays.toString(am.rearrangeArrayWithPositiveAndNegative(arr2)));
+//        System.out.println(am.stocksBuyAndSellSingleTransactionAllowed(arr));
+//        System.out.println(am.longestConsecutive(new int[]{0,3,7,2,5,8,4,6,0,1}));
+//        am.setZeroes(new int[][]{{0,1,2,0},{3,4,5,2},{1,3,1,5}});
+//        am.nextPermutation(new int[] {1,2,3});
+        am.spiralTraversalOfMatrix(new int[][] {{1,2,3,4}});
     }
 }
